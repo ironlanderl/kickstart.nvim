@@ -1,0 +1,32 @@
+{
+	"pwn_info": {
+		"prefix": "pli",
+		"body": [
+			"pwn.log.info(f\"$1\")"
+		]
+	},
+	"pwn_crit": {
+		"prefix": "plc",
+		"body": [
+		"pwn.log.crit(f\"$1\")"
+		]
+	},
+	"pwn_conn": {
+		"prefix": "pr",
+		"body": [
+			"${1:conn} = pwn.remote(\"$2\", $3)"
+		]
+	},
+	"pwn_receive_line": {
+		"prefix": "prl",
+		"body": [
+			"${1:response} = ${2:conn}.recvline().decode()"
+		]
+	},
+	"regex_get_first_number": {
+		"prefix": "renum",
+		"body": [
+        "$1 = int(re.search(r\"\\d+\", ${2:response}).group(0))"
+		]
+	}
+}
